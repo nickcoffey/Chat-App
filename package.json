@@ -1,5 +1,5 @@
 {
-    "name": "My Chat App",
+    "name": "coffey-chat",
     "version": "0.0.1",
     "description": "Basic chat app",
     "dependencies": {
