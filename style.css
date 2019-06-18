@@ -27,14 +27,15 @@ form button:hover {
       background-color: #cecece;  
 }
 
-#messages { 
+#messages {
       list-style-type: none; 
       margin: 0; 
-      padding: 0; 
+      padding: 0;
+      max-height: 20%;
 }
 #messages li { 
       padding: 5px 10px; 
 }
-#messages li:nth-child(odd) { 
+/* #messages li:nth-child(odd) { 
       background: #eee; 
-}
+} */
