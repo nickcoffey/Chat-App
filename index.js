@@ -13,30 +13,27 @@ app.get('/scripts.js', (req, res) => {
     res.sendFile(__dirname + '/scripts.js')
 })
 
-var idToAssign = 0
-var people = []
-
 io.on('connection', (socket) => {
     console.log('A user connected')
+    socket.name = "Anonymous" // default username
 
     socket.on('disconnect', () => {
         console.log('User disconnected')
     })
 
     socket.on('chat message', (msg) => {
-        io.emit('chat message', msg);
+        io.emit('chat message', socket.name + ": " + msg);
     })
 
     socket.on('new person', (name) => {
-        idToAssign++
-        var person = {
-            id: idToAssign,
-            name: name
-        }
-        people.push(person)
-        console.log(person.name + " registered")
-        io.emit('new person', person)
+        socket.name = name
     })
+
+    // socket.on('typing', () => {
+    //     console.log('typing')
+    //     io.emit('typing', socket.name + " is typing...")
+    //     // socket.broadcast.emit('typing', socket.name + " is typing...") // everyone but typer
+    // })
 })
 
 http.listen(port, () => {

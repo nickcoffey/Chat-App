@@ -1,16 +1,13 @@
 $(function () {
     var socket = io()
 
+    // Emit person
     $(document).ready(function () {
         var name = prompt("Please enter your name:", "")
         socket.emit('new person', name.valueOf())
     })
 
-    socket.on('new person', (person) => {
-        localStorage.setItem('person', JSON.stringify(person))
-        // console.log(person)
-    })
-
+    // Emit message
     $('form').submit((e) => {
         e.preventDefault() // prevents page from reloading
         socket.emit('chat message', $('#m').val())
@@ -18,17 +15,23 @@ $(function () {
         return false
     })
 
+    // Listen on message
     socket.on('chat message', (msg) => {
-        $('#messages').append($('<li>').text(JSON.parse(localStorage.getItem('person')).name + ": " + msg))
-        removeLi()
+        $('#messages').append($('<li>').text(msg))
+        autoScroll()
     })
+
+    // Emit typing
+    $('#m').keypress(() => {
+        socket.emit('typing')
+    })
+
+    // // Listen on typing
+    // socket.on('typing', (data) => {
+    //     $('#typing').html("<p>" + data + "</p>")
+    // })
 })
 
-function removeLi() {
-    var items = document.getElementById("messages")
-    var itemLength = items.getElementsByTagName("li").length // 18
-
-    if (itemLength > 18) {
-        items.removeChild(items.childNodes[0])
-    }
+function autoScroll() {
+    document.getElementById('message-container').scrollIntoView(false);
 }
