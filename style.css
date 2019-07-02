@@ -1,51 +1,18 @@
-* { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box;
-      font-family: 'Open Sans', sans-serif;
+/* All other devices */
+#message-row {
+      padding-bottom: 10%;
 }
 
-#message-container {
-      padding-bottom: 4%;
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+      #message-row {
+            padding-bottom: 8%;
+      }
 }
 
-#typing {
-      position: fixed; 
-      bottom: 50px;
-      padding-left: 10px; 
-      width: 100%;     
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+      #message-row {
+            padding-bottom: 4%;
+      }
 }
-
-form { 
-      background: #000; 
-      padding: 3px; 
-      position: fixed; 
-      bottom: 0; 
-      width: 100%; 
-}
-form input { 
-      border: 0; 
-      padding: 10px 5px; 
-      width: 80%; 
-}
-form button { 
-      width: 20%; 
-      background: rgb(130, 224, 255); 
-      border: none; 
-      padding: 10px 0; 
-}
-form button:hover { 
-      background-color: #cecece;  
-}
-
-#messages {
-      list-style-type: none; 
-      margin: 0; 
-      padding: 0;
-}
-#messages li { 
-      padding: 5px 10px; 
-}
-/* #messages li:nth-child(odd) { 
-      background: #eee; 
-} */

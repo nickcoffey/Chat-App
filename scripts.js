@@ -39,7 +39,7 @@ $(function () {
             unreadMessages++
             document.title = '(' + unreadMessages + ') ' + documentTitle
         }
-        $('#messages').append($('<li>').text(msg))
+        $('#messages').append($('<li class="list-group-item border-0">').text(msg))
         autoScroll()
     })
 
@@ -55,5 +55,5 @@ $(function () {
 })
 
 function autoScroll() {
-    document.getElementById('message-container').scrollIntoView(false);
+    document.getElementById('message-row').scrollIntoView(false);
 }
