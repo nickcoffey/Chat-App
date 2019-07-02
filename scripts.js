@@ -1,6 +1,24 @@
 $(function () {
     var socket = io()
 
+    var isWindowActive = false
+    var unreadMessages = 0
+    var documentTitle = 'Chat App'
+
+    // Active
+    window.addEventListener('focus', whenWindowActive)
+    function whenWindowActive() {
+        isWindowActive = true
+        unreadMessages = 0
+        document.title = documentTitle
+    }
+
+    // Inactive
+    window.addEventListener('blur', whenWindowInactive)
+    function whenWindowInactive() {
+        isWindowActive = false
+    }
+
     // Emit person
     $(document).ready(function () {
         var name = prompt("Please enter your name:", "")
@@ -17,6 +35,10 @@ $(function () {
 
     // Listen on message
     socket.on('chat message', (msg) => {
+        if (!isWindowActive) {
+            unreadMessages++
+            document.title = '(' + unreadMessages + ') ' + documentTitle
+        }
         $('#messages').append($('<li>').text(msg))
         autoScroll()
     })
