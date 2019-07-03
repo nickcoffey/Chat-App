@@ -14,7 +14,7 @@
 <body>
     <div class="container-fluid">
         <div class="row" id="message-row">
-            <ul class="list-group list-group-flush" id="messages"></ul>
+            <ul class="list-group" id="messages"></ul>
         </div>
         <div class="row">
             <div id="typing"></div>
@@ -24,9 +24,11 @@
                 <form class="form">
                     <div class="input-group">
                         <input class="form-control" id="m" autocomplete="off" />
-                        <button class="btn btn-primary">Send</button>
+                        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#emoji-collapse">&#x1F600;</button>
+                        <button class="btn btn-primary" type="submit">Send</button>
                     </div>
                 </form>
+                <div class="collapse" id="emoji-collapse"></div>
             </div>
         </div>
     </div>
