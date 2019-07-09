@@ -61,13 +61,19 @@ $(function () {
         autoScroll()
     })
 
+    // Emit focus off input
+    $('#m').focusout(() => {
+        socket.emit('offinput')
+    })
+
+    // Listen on focus off input
+    socket.on('offinput', () => {
+        $('#typing').html('')
+    })
+
     // Emit typing
     $('#m').keypress(() => {
         socket.emit('typing')
-    })
-
-    $('#m').focusout(() => {
-        $('#typing').html('')
     })
 
     // Listen on typing
