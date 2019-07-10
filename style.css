@@ -1,3 +1,11 @@
+/* #messages > li > span {
+      font-size: 150%;
+} */
+
+#emoji-collapse > button {
+      font-size: 150%;
+}
+
 /* All other devices */
 #message-row {
       padding-bottom: 10%;

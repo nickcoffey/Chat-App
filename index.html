@@ -8,17 +8,20 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Chat App</title>
+    <title>Coffey Chat</title>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row" id="message-row">
-            <ul class="list-group" id="messages"></ul>
+            <div class="col-11">
+                <ul class="list-group" id="messages"></ul>
+            </div>
+            <div class="col-1 text-center">
+                <h4>Connected Users</h4>
+                <ul class="list-group" id="users"></ul>
+            </div>
         </div>
-        <!-- <div class="row">
-            <div id="typing"></div>
-        </div> -->
         <div class="row fixed-bottom">
             <div class="col">
                 <div id="typing" class="text-center"></div>
@@ -29,7 +32,7 @@
                         <button class="btn btn-primary" type="submit">Send</button>
                     </div>
                 </form>
-                <div class="collapse" id="emoji-collapse"></div>
+                <div class="collapse text-center" id="emoji-collapse"></div>
             </div>
         </div>
     </div>
