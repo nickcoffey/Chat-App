@@ -46,13 +46,13 @@ io.on('connection', (socket) => {
 
     socket.on('typing', () => {
         // console.log('typing')
-        io.emit('typing', socket.name + " is typing...") // everyone
-        // socket.broadcast.emit('typing', socket.name + " is typing...") // everyone but typer
+        // io.emit('typing', socket.name + " is typing...") // everyone
+        socket.broadcast.emit('typing', socket.name + " is typing...") // everyone but typer
     })
 
     socket.on('offinput', () => {
-        io.emit('offinput') // everyone
-        // socket.broadcast.emit('offinput') // everyone but typer
+        // io.emit('offinput') // everyone
+        socket.broadcast.emit('offinput') // everyone but typer
     })
 
     function getUsers() {
